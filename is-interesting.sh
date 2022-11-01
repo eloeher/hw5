@@ -11,3 +11,7 @@ if [ $FIRST -eq 1 ] ; then
   fi
 fi
 exit 0
+
+
+# this checks to see if the numbers are 3 and 6; if that's true, then it's interesting. 
+# we want to check if the concatenation breaks the compilation; if that's true, it's interesting.
