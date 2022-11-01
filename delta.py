@@ -93,6 +93,7 @@ def main():
 
     dd = DeltaDebug().DD([], res, shell_script_name)
 
+    print(sorted(list(dd)))
     return sorted(list(dd))
 
 
