@@ -49,10 +49,6 @@ class DeltaDebug:
 
         if result_1.returncode == 1:
             arr_ran = P + p1
-            # if len(arr_ran) < self.min_array_size:
-            #     self.min_array_size = len(arr_ran)
-            #     self.final_array = arr_ran
-            #     print("final array is now", self.final_array)
             return self.DD(P, p1, shell_script_name)
 
         # build command for p2 and P 
@@ -67,10 +63,6 @@ class DeltaDebug:
 
         if result_2.returncode == 1:
             arr_ran = P + p2
-            # if len(arr_ran) < self.min_array_size:
-            #     self.min_array_size = len(arr_ran)
-            #     self.final_array = arr_ran
-            #     print("final array is now", self.final_array)
             return self.DD(P, p2, shell_script_name)
 
         # if both were 0 recur
