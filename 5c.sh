@@ -4,7 +4,7 @@ ERROR_FOUND=0
 
 echo $*
 for i in $* ; do
-  ./pngtest "$i".png
+  ./pngtest large-png-suite/"$i".png
 done
 
 
