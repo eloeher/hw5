@@ -12,12 +12,18 @@ done
 last_line=$( gcov *.c | tail -1 )
 echo last_line
 
-if [ $? ==  1 ]; then ERROR_FOUND=1 ; fi 
+IFS='\v' read -r var1 var2 var3 <<< "Lines Executed: 43%" # change to last_line
+
+coverage=$(echo $var3 | cut -d'%' -f 0)
+
+echo coverage
+
+if [ coverage >=  29.13 ]; then ERROR_FOUND=1 ; fi 
 
 
 if [ $ERROR_FOUND -eq 1 ] ; then 
-    cat wireworld-backup.c > wireworld-original.c
+    rm *.gcda pngout.png
     exit 1 # interesting
 fi
-cat wireworld-backup.c > wireworld-original.c
+rm *.gcda pngout.png
 exit 0
