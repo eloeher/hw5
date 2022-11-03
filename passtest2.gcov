@@ -1,0 +1,4 @@
+        6: 2020:         if (i == 1)
+        2: 2021:            status_dots_requested = 1;
+        -: 2022:
+        4: 2023:         else if (verbose == 0)
