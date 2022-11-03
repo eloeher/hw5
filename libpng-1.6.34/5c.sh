@@ -10,15 +10,20 @@ done
 
 
 last_line=$( gcov *.c | tail -1 )
-echo last_line
+echo last_line is: 
+echo $last_line
 
-IFS='\v' read -r var1 var2 var3 <<< last_line
+IFS=' '
 
-coverage=$(echo $var3 | cut -d'%' -f 1)
 
-echo coverage
+# coverage=$(echo $last_line | tr -d 'Lines executed:' | tr -d '% of 10606' )
 
-if [ coverage >=  29.13 ]; then ERROR_FOUND=1 ; fi 
+coverage=${last_line:15:2}
+
+echo coverage is
+echo $coverage
+
+if [ "$coverage" -ge  30 ]; then ERROR_FOUND=1 ; fi 
 
 
 if [ $ERROR_FOUND -eq 1 ] ; then 
@@ -26,4 +31,5 @@ if [ $ERROR_FOUND -eq 1 ] ; then
     exit 1 # interesting
 fi
 rm *.gcda pngout.png
+
 exit 0
