@@ -12,9 +12,9 @@ done
 last_line=$( gcov *.c | tail -1 )
 echo last_line
 
-IFS='\v' read -r var1 var2 var3 <<< "Lines Executed: 43%" # change to last_line
+IFS='\v' read -r var1 var2 var3 <<< last_line
 
-coverage=$(echo $var3 | cut -d'%' -f 0)
+coverage=$(echo $var3 | cut -d'%' -f 1)
 
 echo coverage
 
